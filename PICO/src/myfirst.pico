@@ -1,0 +1,21 @@
+begin 
+	declare nat : natural,
+	bo : boolean;
+	      nat := 1;
+      str := "a";
+      bo := true;
+      
+      bo := 1*1;
+      
+      for ;; do
+      od;
+      
+      for ;; do
+      	break;
+      od;
+      
+      % p.s. In the declaration section of FOR loop, we always declare natural number. %
+      for i:=1; i!=10; i:=i+1 do
+      	break;
+      od
+end

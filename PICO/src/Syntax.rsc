@@ -12,7 +12,8 @@ keyword PicoKeywords = "begin" | "end" |
                        "if" | "then" | "else" | "fi" | 
                        "while" | "do" | "od" |
                        "true" | "false" | // HW1_3.2 Boolean keywords
-                       "for" // HW1_3.4 "for" loop keyword
+                       "for" | // HW1_3.4 "for" loop keyword
+                       "break" // HW1_3.4 extra termination condition keyword
                        ;
 
 layout Layout = WhitespaceAndComment* !>> [\ \t\n\r%];
@@ -43,6 +44,7 @@ syntax Statement
    | whileStat: "while" Expression cond "do" {Statement ";"}* body "od"
    // HW1_3.4 "for" loop statement with 3 optional parameters
    | forStat: "for" Statement? vari ";" Expression? cond ";" Statement? oper "do" {Statement ";"}* body "od"
+   | brakeStat: "break" ";" 	// HW1_3.4 extra termination condition statement
   ;  
      
 syntax Expression 
@@ -51,6 +53,7 @@ syntax Expression
    | natCon: Natural natcon
    | boolCon: Boolean boolcon
    | bracket "(" Expression e ")"
+   
    > left conc: Expression lhs "||" Expression rhs
    // HW1_3.3 Numerical operators for multiplication and division
    > left ( mul: Expression lhs "*" Expression rhs

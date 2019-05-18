@@ -1,0 +1,91 @@
+begin 
+
+	% Correct syntax for booleans 
+	declare bo : boolean,
+			bo2: boolean;
+	bo := true;
+	bo2 := false;
+	
+	bo != bo2;
+	bo == bo2 != bo;
+	bo == (bo2 != bo);
+	
+	% Incorrect syntax for booleans
+	bo == != bo2;
+	==;
+	(bo ==) bo2;
+	bo ==;
+	
+	% Correct syntax for multiplication and division
+	declare n1 : natural,
+			n2 : natural;
+	
+	n1 := 19;
+	n2 := 17;
+	
+	n1 / n2 * n3;
+	n1 / (n2 * n3);
+	
+	% Incorrect syntax for multiplication and division
+	(n1 * n2;
+	n1 / + n2;
+	/ n1;
+	n1 // n2;
+	n1 (/ n2);
+	
+	% Syntactically correct for loops  
+    for ;; 
+    do
+    od;
+      
+	for ;; do
+  	break;
+	od;
+	
+	
+    for ; i!=10; i:=i+1 do
+  	n1 := n2  + n1;
+    od;
+    
+    for ; i!=10;  do
+  	n1 := n2  + n1;
+    od;
+    
+    for i:=1; i!=10; i:=i+1 do
+  	n1 := n2  + n1;
+    od;
+    
+    % Syntactically incorrect for loops
+    for (i := 1; i!=10; i:=i+1) do
+  	n1 := n2  + n1;
+    od; 
+    
+    for i := 1, i!=10; i:=i+1 do
+  	n1 := n2  + n1;
+    od;     
+    
+    for i := 1; i!=10; i:=i+1 
+  	n1 := n2  + n1;
+    od; 
+    
+    for i := 1; i!=10; i:=i+1 do
+  	n1 := n2  + n1;  	
+  	
+    for i := 1; (i!=10; i:=i+1) do {
+  	n1 := n2  + n1;
+    } od;
+    
+    for ; i!=10;  do
+  	n1 := n2  + n1;
+    od;
+    
+    for i==1; i!=10; i:=i+1 do
+  	n1 := n2  + n1;
+    od;
+    
+    for i:= 1; i!=10; i!=i+1 do
+  	n1 := n2  + n1;
+    od
+    
+    for ; do od
+end

@@ -44,7 +44,7 @@ syntax Statement
    | whileStat: "while" Expression cond "do" {Statement ";"}* body "od"
    // HW1_3.4 "for" loop statement with 3 optional parameters
    | forStat: "for" Statement? vari ";" Expression? cond ";" Statement? oper "do" {Statement ";"}* body "od"
-   | brakeStat: "break" ";" 	// HW1_3.4 extra termination condition statement
+   | breakStat: "break" ";" 	// HW1_3.4 extra termination condition statement
   ;  
      
 syntax Expression 

@@ -1,0 +1,15 @@
+begin 
+	declare execute : boolean,
+			i : natural;
+
+	% for loop with all parameters specified %
+	for i:=0; i!=4; i:=i+1 do
+	break;
+		% do something with i := [0, 1, 2, 3] %
+	od;
+	
+	% for loop with all parameters specified %
+	for i:=10; i!=6; i:=i-1 do
+		% do something with i := [10, 9, 8, 7] %
+	od
+end

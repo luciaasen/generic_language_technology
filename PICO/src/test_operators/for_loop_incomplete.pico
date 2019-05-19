@@ -1,0 +1,15 @@
+begin 
+	declare execute : boolean,
+			i : natural;
+			
+	execute := false;
+	
+	% for loop without incrementation parameter %
+	for i:=10; execute; do
+		if i == 3 then
+		  	execute := false	%% Tells the for loop to terminate it in the next iteration.
+	  	else
+		  	i:=i+1
+	  	fi
+	od
+end

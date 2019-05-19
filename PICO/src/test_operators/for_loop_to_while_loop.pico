@@ -1,0 +1,26 @@
+begin declare i : natural,           
+              execute : boolean;
+		    
+	execute := false;
+	i:=0;
+	
+	% for with boolean value to terminate it %
+	for ; execute; do
+		if i == 3 then
+		  	execute := false	%% Tells the for loop to terminate it in the next iteration.
+	  	else
+		  	i:=i+1
+	  	fi
+	od;
+	
+	i:=0;
+	
+	% given for loop transformation to while loop %
+	while execute do
+		if i == 3 then
+		  	execute := false	%% Tells the while loop to terminate it in the next iteration.
+	  	else
+		  	i:=i+1
+	  	fi
+	od
+end

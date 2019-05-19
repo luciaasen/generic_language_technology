@@ -1,0 +1,13 @@
+begin 
+	declare i : natural;
+	
+	i:=0;
+
+	for ; ; do
+		if i == 3 then
+		  	break;
+	  	else
+		  	i:=i+1
+	  	fi
+	od
+end

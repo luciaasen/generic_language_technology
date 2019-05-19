@@ -1,0 +1,9 @@
+begin declare nat : natural,  
+              str : string,           
+              bool : boolean;
+      nat := 1;
+      str := "a";
+      bool := true;
+
+	  nat := 11 + (nat +) 2
+end

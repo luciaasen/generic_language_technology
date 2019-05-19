@@ -1,0 +1,13 @@
+begin 
+	declare a : natural;
+
+	% ++ operator is not suported %
+	for a:=0; i==3; i++ do
+		% do something with i %
+	od
+	
+	% comparison signs "<" and ">" are not supported  %
+	for a:=0; i<3; i:=i+1 do
+		% do something with i %
+	od
+end

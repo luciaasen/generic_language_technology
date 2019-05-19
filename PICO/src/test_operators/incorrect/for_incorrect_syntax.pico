@@ -1,5 +1,6 @@
 begin 
-	declare a : natural;
+	declare a : natural,
+			i : natural;
 
 	% ++ operator is not suported %
 	for a:=0; i==3; i++ do
@@ -10,4 +11,23 @@ begin
 	for a:=0; i<3; i:=i+1 do
 		% do something with i %
 	od
+	
+	% Bracket are not suported %
+    for (i := 1; i!=10; i:=i+1) do
+  	a := a  + a;
+    od; 
+    
+    % Missing do/od keywords: %
+    for i := 1; i!=10; i:=i+1 
+  	a := a  + a;
+    od; 
+    
+    for i := 1; i!=10; i:=i+1 do
+  	a := a  + a;  	
+  	
+  	% In assignemnt statement comparison is used %
+    
+    for i==1; i!=10; i:=i+1 do
+  	n1 := n2  + n1;
+    od
 end

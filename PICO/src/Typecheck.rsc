@@ -88,6 +88,25 @@ TENV checkStat(stat:whileStat(EXP Exp,
     return env1;
 }
 
+// ADDED assignment 2
+
+// I would make the arguments in for in Syntax.rsc to make this easier
+// I dont know how to cope with optional arguments here
+TENV checkStat(stat:forStat(STATEMENT Ini,
+							EXP Exp,
+							STATEMENT Inc, 
+                            list[STATEMENT] Stats1),
+                 TENV env) {
+    env0 = checkStat(Ini, env);
+    env1 = checkExp(Exp, boolean(), env0);
+    env2 = checkStat(Inc, env2);
+    env3 = checkStats(Stats1, env3);
+    return env3;
+}
+
+
+//
+
 // check a list of statements
 TENV checkStats(list[STATEMENT] Stats1, TENV env) {                                 
   for(S <- Stats1){

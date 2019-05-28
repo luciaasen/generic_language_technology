@@ -5,7 +5,7 @@ begin declare nat : natural,
       str := "a";
       bool := true;
 	
-	  while (1 == 0) do
+	  while (1) do
 	  	if nat == 0 then
 		  	str := 0
 	  	else

@@ -1,4 +1,8 @@
 begin 
+	%------------------------------------------------------------------------------  
+		HW2_1.2 Checking the for statement
+	 	All the numerical and relational operators are recognized correctly.
+	 ------------------------------------------------------------------------------%
 	declare execute : boolean,
 			i : natural,
 			x : natural;
@@ -16,6 +20,12 @@ begin
 	
 	% for loop with multiple parameters specified %
 	for i:=10, x:=5; i==6; i:=i-1, x:=x+1 do
+		% do something with i := [10, 9, 8, 7] %
+		% do something with x := [5, 6, 7, 8] %
+	od;
+		
+	% for loop with multiple parameters and complex expression %
+	for i:=10, x:=5; i == x == true; i:=i-1, x:=x+1 do
 		% do something with i := [10, 9, 8, 7] %
 		% do something with x := [5, 6, 7, 8] %
 	od

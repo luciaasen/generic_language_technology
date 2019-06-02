@@ -1,11 +1,15 @@
 begin 
+	%------------------------------------------------------------------------------  
+		HW2_1.2 Checking the for statement
+	 	All the numerical and relational operators are recognized correctly.
+	 ------------------------------------------------------------------------------%
 	declare execute : boolean,
 			i : natural;
 			
 	execute := false;
 	
 	% for loop without incrementation parameter %
-	for i:=10; execute; do
+	for i:=10; execute == true; do
 		if i == 3 then
 		  	execute := false	%% Tells the for loop to terminate it in the next iteration.
 	  	else

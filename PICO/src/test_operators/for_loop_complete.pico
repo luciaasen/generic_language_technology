@@ -1,6 +1,7 @@
 begin 
 	declare execute : boolean,
-			i : natural;
+			i : natural,
+			x : natural;
 
 	% for loop with all parameters specified %
 	for i:=0; i!=4; i:=i+1 do
@@ -9,7 +10,13 @@ begin
 	od;
 	
 	% for loop with all parameters specified %
-	for i:=10; i!=6; i:=i-1 do
+	for i:=10; i==6; i:=i-1 do
 		% do something with i := [10, 9, 8, 7] %
+	od;
+	
+	% for loop with multiple parameters specified %
+	for i:=10, x:=5; i==6; i:=i-1, x:=x+1 do
+		% do something with i := [10, 9, 8, 7] %
+		% do something with x := [5, 6, 7, 8] %
 	od
 end

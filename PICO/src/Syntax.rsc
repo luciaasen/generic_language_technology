@@ -42,8 +42,8 @@ syntax Statement
    = asgStat: Id var ":="  Expression val 
    | ifElseStat: "if" Expression cond "then" {Statement ";"}*  thenPart "else" {Statement ";"}* elsePart "fi"
    | whileStat: "while" Expression cond "do" {Statement ";"}* body "od"
-   // HW1_3.4 "for" loop statement with 3 optional parameters
-   | forStat: "for" Statement? vari ";" Expression? cond ";" Statement? oper "do" {Statement ";"}* body "od"
+   // HW1_3.4 "for" loop statement with 3 parameters. Expression is mandatory.
+   | forStat: "for" {Statement ","}* vari ";" Expression cond ";" {Statement ","}* oper "do" {Statement ";"}* body "od"
    | breakStat: "break" ";" 	// HW1_3.4 extra termination condition statement
   ;  
      

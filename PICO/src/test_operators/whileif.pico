@@ -7,9 +7,9 @@ begin declare nat : natural,
 	
 	  while (1) do
 	  	if nat == 0 then
-		  	str := 0
+		  	str := "0"
 	  	else
-		  	str := 1
+		  	str := "1"
 	  	fi
 	  od
 end

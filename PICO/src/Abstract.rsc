@@ -1,6 +1,7 @@
 module Abstract
 
-public data TYPE = natural() | string() | boolean();    
+// HW2 Add boolean type values							-- START --
+public data TYPE = natural() | string() | boolean(); // --  END  --
 	  
 public alias PicoId = str;                  
 	  
@@ -14,13 +15,15 @@ public data EXP =
        id(PicoId name)
      | natCon(int iVal)
      | strCon(str sVal)
-     | boolCon(str bVal)
-     | add(EXP left, EXP right)
-     | sub(EXP left, EXP right)
+     // HW2_1.1 Add boolean constant      -- START --
+     | boolCon(bool bVal) 		    //    --  END  --
+     // HW2_1.1 Add operators 		   -- START --
      | mul(EXP left, EXP right)
      | div(EXP left, EXP right)
      | eq(EXP left, EXP right)
-     | neq(EXP left, EXP right)
+     | neq(EXP left, EXP right)     // --  END  --
+     | add(EXP left, EXP right)
+     | sub(EXP left, EXP right)
      | conc(EXP left, EXP right)
      ;
     
@@ -28,7 +31,8 @@ public data STATEMENT =
        asgStat(PicoId name, EXP exp)
      | ifElseStat(EXP exp, list[STATEMENT] thenpart, list[STATEMENT] elsepart)
      | whileStat(EXP exp, list[STATEMENT] body)
-     | forStat(STATEMENT ini, EXP exp, STATEMENT inc, list[STATEMENT] body)
+     // HW2_1.2 Add FOR loop statement:
+     | forStat(list[STATEMENT] vari, EXP cond, list[STATEMENT] oper, list[STATEMENT] body)
      ;
 
 anno loc TYPE@location;                   

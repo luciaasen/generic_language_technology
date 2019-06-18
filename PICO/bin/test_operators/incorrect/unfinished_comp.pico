@@ -1,0 +1,24 @@
+begin declare nat : natural,  
+              str : string,           
+              bool : boolean;
+    nat := 1;
+    str := "a";
+    bool := true;
+
+	bool := nat ==  
+	  
+	%% Incorrect syntax for booleans
+	bo == != bo2;
+	==;
+	(bo ==) bo2;
+	bo ==;
+	
+	
+	%% Incorrect syntax for multiplication and division
+	(n1 * n2;
+	n1 / + n2;
+	/ n1;
+	n1 // n2;
+	n1 (/ n2);
+	
+end

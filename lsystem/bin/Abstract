@@ -1,0 +1,36 @@
+module Abstract
+
+public data TYPE = natural() | string() | var();
+
+public data PARAM = axiom() | angle() | nIters() | rules();
+
+public data PROGRAM =
+   program(list[STATEMENT] stats);
+
+--public data PARAMETER
+--   = axiomCon(str axVal) 
+--   | angleCon(int anVal)
+--   | nItersCon(int niVal)
+--   ;
+   
+public data EXPRESSION
+   = natCon(int iVal)
+   | varCon(str vVal)
+   | strCon(str sVal)
+   ;
+
+public data STATEMENT
+   = paramStat(PARAM param, EXP exp)
+   | rulesStat(PARAM param, list[RULE]);
+
+public data RULE
+   = rule(EXP var, EXP assignment);   
+   
+anno loc TYPE@location;   
+anno loc PARAM@location;                
+anno loc PROGRAM@location;
+anno loc PARAMETER@location;     
+anno loc EXPRESSION@location;
+anno loc STATEMENT@location;
+anno loc RULE@location
+public alias Occurrence = tuple[loc location, LSId name, STATEMENT stat]; --??

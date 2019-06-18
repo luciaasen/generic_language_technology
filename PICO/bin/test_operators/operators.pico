@@ -1,0 +1,28 @@
+begin 
+	%------------------------------------------------------------------------------  
+		HW2_1.1 Checking the numerical and comparison operators
+	 	All the numerical and comparison operators are recognized correctly.
+	 ------------------------------------------------------------------------------%
+declare nat : natural,  
+              str : string,           
+              bool : boolean;
+          
+	nat := 1;
+	str := "tro";
+	bool := true;   
+
+	nat := nat / 1;
+	nat := nat * nat;
+	bool := bool; 
+	str := str ||  "jan" || "alert";
+
+	bool := nat == 0;
+	bool := true == false;		 
+    bool := nat + 1 == 2;
+    bool :=  nat + 1 - 2 != 9;
+	bool := nat != nat + 1;
+	bool := nat + 1 - 2 != 9;
+	
+    bool := (str ||  "jan") == "trojan" == true;
+    bool := true == (str ||  "jan" == "trojan")
+end

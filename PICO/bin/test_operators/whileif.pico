@@ -1,0 +1,15 @@
+begin declare nat : natural,  
+              str : string,           
+              bool : boolean;
+      nat := 1;
+      str := "a";
+      bool := true;
+	
+	  while (1) do
+	  	if nat == 0 then
+		  	str := "0"
+	  	else
+		  	str := "1"
+	  	fi
+	  od
+end

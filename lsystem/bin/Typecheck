@@ -1,0 +1,67 @@
+module Typecheck
+
+import Prelude;
+import Abstract;
+import Load;
+
+alias ENV = tuple[list[tuple[loc l, str msg]] errors]; 
+
+ENV addError(ENV env, loc l, str msg) = env[errors = env.errors + <l, msg>];      
+
+str required(TYPE t, str got) = "Required <getName(t)>, got <got>"; 
+str requiredParams(str req) = "Required parameter needs to be <req>";
+
+// Compile expressions
+
+ENV checkExp(exp:natCon(int N), TYPE req, ENV env) =                              
+   req == natural() ? env : addError(env, exp@location, required(req, "natural"));
+	
+ENV checkExp(exp:strCon(str S), TYPE req, ENV env) =
+   req == string() ? env : addError(env, exp@location, required(req, "string"));
+
+ENV checkExp(exp:varCon(var V), TYPE req, ENV env) =
+   req == var() ? env : addError(env, exp@location, required(req, "var"));
+ 
+// Check statements
+
+--?? How does this work? If a statement receives param + exp, as defined in syntax, the first
+-- function is executed but if it receives param + rules the second one is executed?
+
+ENV checkStat(stat:paramStat(PARAM param, EXPRESSION exp),
+   		  ENV env){
+    
+    -- I dont know how to write this down!!
+    
+	if (param == axiom()) 
+		return checkExp(exp, var(), env);
+	if (param == angle()) 
+		return checkExp(exp, natural(), env);
+	if (param == nIters()) 
+		return checkExp(exp, natural(), env);
+	if (param == rules()){
+		return addError(env, stat@location, requiredParam("not rules"));
+	}
+}
+
+ENV checkStat(stat:rulesStat(PARAM param, list[RULE] rules)){
+	if (param == rules()){
+		for (R <- rules) {
+			env = checkRule(R, env);
+		}
+		return env;
+		}
+	return addError(env, stat@location, requiredParam("rules"));
+}
+   		  
+ENV checkRule(rule:rule(EXP var, EXP assignment), ENV env) =
+	checkExp(var, var(), checkExp(assignment, string()))
+
+public ENV checkProgram(PROGRAM P){                                                
+  if(program(list[STATEMENT] stats) := P){
+     return checkStats(stats, env);
+  } else
+    throw "Cannot happen";
+}
+      
+public list[tuple[loc l, str msg]] checkProgram(str txt) = checkProgram(load(txt)).errors; --??
+ 

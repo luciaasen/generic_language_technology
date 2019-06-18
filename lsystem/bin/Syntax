@@ -1,0 +1,63 @@
+module Syntax
+
+import Prelude;
+
+lexical Var = ([A-Z] !>> [A-Z]) \ LSKeywords; 
+lexical String = (![,;{}])\ LSKeywords;
+lexical Natural = [0-9]+ ;
+
+keyword LSKeywords = "start" | "end" | 
+                       "axiom" | "angle" | "nIter" |
+                       "rules"
+                       ;
+
+layout Layout = WhitespaceAndComment* !>> [\ \t\n\r%];
+
+lexical WhitespaceAndComment 
+   = [\ \t\n\r]
+   | @category="Comment" "/*" ![/]+ "/"
+   | @category="Comment" "//" ![\n]* $
+   ;
+
+ start syntax Program 
+   = program: "start" Statements stats "end" ;
+
+syntax Type 
+   = natural:"natural"
+   = string: "string"
+   ;
+    
+syntax Parameter
+   = axiom: "axiom"
+   | angle: "angle"
+   | nIters: "nIters"
+   | rules: "rules"
+   ;
+
+syntax Statements 
+   = {Statement ","}* stats;  
+
+syntax Statement 
+   = paramStat: Parameter parameter ":" Expression exp
+   | rulesStat: Parameter parameter ":" "{" {Rule ","}* rules "}"
+   ;
+
+syntax Expression
+   = natCon: Natural natcon
+   | varCon: Var varcon
+   | strCon: String strcon
+   ;
+
+syntax Rule 
+   = rule: Expression var "->" Expression str;
+      
+public start[Program] program(str s) {
+  return parse(#start[Program], s);
+}
+
+public start[Program] program(str s, loc l) {
+  return parse(#start[Program], s, l);
+}
+   
+   
+   

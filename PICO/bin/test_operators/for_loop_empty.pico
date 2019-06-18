@@ -1,0 +1,18 @@
+begin 
+	%------------------------------------------------------------------------------  
+		HW2_1.2 Checking the for statement
+	 	All the numerical and relational operators are recognized correctly.
+	 ------------------------------------------------------------------------------%
+	declare i : natural;
+	
+	i:=0;
+
+	% Empty FOR loop. Works like infinite WHILE loop, which can exit by executing "break" statement. %
+	for ; true ; do
+		if i == 3 then 
+		  	break;
+	  	else
+		  	i:=i+1
+	  	fi
+	od
+end

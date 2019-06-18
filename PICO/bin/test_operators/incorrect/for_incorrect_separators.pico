@@ -1,0 +1,8 @@
+begin 
+	declare finished : boolean;
+
+	%% incorrect statement separator
+	for i:=0, i==3, i:=i+1 do
+		% do something with i %
+	od
+end

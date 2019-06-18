@@ -1,0 +1,27 @@
+begin 
+	%------------------------------------------------------------------------------  
+		Assignemnt 1 and 2 test
+	 	All datatypes are recognized correctly.
+	 ------------------------------------------------------------------------------%
+	declare nat1 : natural,  
+			nat2: natural,
+            str : string,
+            bool: boolean;
+
+	%% Simple, single comparison
+     bool := true == 3;  		%% Required boolean, got natural
+     bool := 3 == true;  		%% Required natural, got boolean
+     bool := tru == 2;	 		%% Undeclared variable tru
+     
+    %% Simple, double comparison
+     bool := true == 2 == 5; 	%% Required boolean, got natural (twice)
+     bool := 2 + 2 == true; 	%% Required natural, got boolean
+     
+    %% Complex, single comparison
+     bool := nat1 + nat2 == true; 		%% Required natural, got boolean
+     bool := "cat" || "dog" == true; 	%% Required string, got boolean
+     
+    %% Complex, double comparison
+     bool := nat1 * 2 == true == false;	%% Required natural, got boolean
+     bool := nat1 / nat2 == 2 / 2 == "cat" || "dog"  %% Required boolean, got string
+end
